@@ -1,5 +1,75 @@
+* {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  margin: auto;
+  border-spacing: 0px;
+  padding: 2vw;
+}
+
+th {
+  margin: auto;
+}
+
+td {
+  background-color: white;
+  border: 1px solid black;
+  min-width: 50px;
+}
+
+#no {
+  background-color: white;
+}
+
+#yes {
+  background-color: greenyellow;
+}
+
+tbody > tr > th {
+  font-size: 5%;
+}
+
+tr {
+  height: 0.1vw;
+}
+
+tr:nth-child(even) > td {
+  border-top: 1px dotted grey;
+}
+
+element.style {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+fieldset {
+  width: 400px;
+  background-color: cadetblue;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+label {
+  position: relative;
+}
+
+.radio-button-selector {
+  display: inline;
+}
+
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -26,6 +96,59 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* Tab Container */
+.Tabs {
+  background: #053742;
+  color: #E8F0F2;
+  text-align: center;
+  height: auto;
+  min-height: 800px;
+  border-radius: 2rem;
+
+}
+
+body {
+  background-color: lightslategray;
+}
+
+ul.nav {
+  background-color: lightslategray;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0px;
+}
+
+ul.nav li {
+  background: #39A2DB;
+  width: 50%;
+  padding: 1rem;
+  font-size: x-large;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+ul.nav li:nth-child(2) {
+  border-radius: 0;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+ul.nav li:hover {
+  background: rgba(50, 224, 196, 0.15);
+}
+ul.nav li.active {
+  background: #053742;
+}
+
+.TabContent {
+  font-size: 2rem;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
