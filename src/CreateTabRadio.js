@@ -78,7 +78,7 @@ class CreateTabRadio extends Component {
             Containers
           </label>
         </div>
-      {this.renderSelectedForm(this.state.selectedOption)}     
+      {this.renderSelectedForm(this.state.selectedOption)}
       </form>
     );
   }

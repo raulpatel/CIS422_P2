@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {Component} from 'react'
 import Calendar from '../Calendar'
 
 
@@ -15,37 +15,46 @@ const Dropdown = ({ label, value, options, onChange }) => {
   );
  };
 
-export default function ScheduleForm() {
-  const [schedName, setSchedName] = useState('');
-  const [noEarlier, setNoEarlier] = React.useState('ne0800');
-  const [noLater, setNoLater] = React.useState('nl1700');
-
-  const handleNoEarlierChange = (event) => {
-    setNoEarlier(event.target.value);
+class ScheduleForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedOption: "Calendar",
+      schedName: "",
+      noEarlier: 'ne0800',
+      noLater: 'nl1700'
+    };
+    this.handleSchedChange = this.handleSchedChange.bind(this);
+    this.handleNoEarlierChange = this.handleNoEarlierChange.bind(this);
+    this.handleNoLaterChange = this.handleNoLaterChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  const handleNoLaterChange = (event) => {
-    setNoLater(event.target.value);
+  handleSchedChange(event) {
+    this.setState({schedName: event.target.value});
   }
-
-  const handleSubmit = event => {
+  handleNoEarlierChange(event) {
+    this.setState({noEarlier: event.target.value});
+  }
+  handleNoLaterChange(event) {
+    this.setState({noLater: event.target.value});
+  }
+  handleSubmit(event) {
     event.preventDefault();
-    console.log("Schedule Form");
-    console.log('Schedule Name: ', schedName);
-    console.log('No Earlier Than: ', noEarlier);
-    console.log('No Later Than: ', noLater);
-    setSchedName('');
-  };
+    console.log(this.state.selectedOption);
+    console.log(this.state.schedName);
+    console.log(this.state.noEarlier);
+    console.log(this.state.noLater);
+  }
   
 
-
-  return (
+  render() {
+    return (
     
     <div>
       <fieldset>
-      <form onSubmit={ handleSubmit }>
-      <input type="text" id='Sched_Name' placeholder="Schedule Name" value ={schedName}
-      onChange = {event => setSchedName(event.target.value)}/>
+      <form onSubmit={ this.handleSubmit }>
+      <input type="text" id='Sched_Name' placeholder="Schedule Name" value ={this.state.schedName}
+      onChange = {this.handleSchedChange}/>
       <br/>
       <br/>
       <label for={'guests'}>Guests Allowed?</label>
@@ -95,8 +104,8 @@ export default function ScheduleForm() {
         { label: '10:00pm',  value: 'ne2200' },
         { label: '11:00pm',  value: 'ne2300' },
       ]}
-      value ={noEarlier}
-      onChange={handleNoEarlierChange}
+      value ={this.state.noEarlier}
+      onChange={this.handleNoEarlierChange}
       />
       </div>
       <br/>
@@ -128,8 +137,8 @@ export default function ScheduleForm() {
         { label: '10:00pm',  value: 'nl2200' },
         { label: '11:00pm',  value: 'nl2300' },
       ]}
-      value ={noLater}
-      onChange={handleNoLaterChange}
+      value ={this.state.noLater}
+      onChange={this.handleNoLaterChange}
       />
       </div>
       {/*
@@ -152,5 +161,7 @@ export default function ScheduleForm() {
       </div> */}
       {/* <Calendar /> */}
     </div>
-  )
+  );
 }
+}
+export default ScheduleForm;
