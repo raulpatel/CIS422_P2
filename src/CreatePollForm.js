@@ -11,7 +11,7 @@ export default function CreatePollForm() {
       <input name={'guests'} type={'checkbox'}/>
       <br/>
       <label for={'specifyDate'}>Specify Dates?</label>
-      <input name={'specifyDate'} type={'checkbox'} on/>
+      <button name={'specifyDate'} on/>
       <br/>
       <div id={'dates'} style={{display:'none'}}>
         <label for={'startDate'}>Start Date</label>
