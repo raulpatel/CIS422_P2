@@ -30,11 +30,11 @@ class CreateTabRadio extends Component {
               <ScheduleForm />
               </form>;
       case 'Poll':
-        return <form name="Calendar" id="Poll" >
+        return <form name="Poll" id="Poll" >
               Poll Form
               </form>;
       case 'Containers':
-        return <form name="Calendar" id="Containers" >
+        return <form name="Containers" id="Containers" >
               Container Form
               </form>;
       default:

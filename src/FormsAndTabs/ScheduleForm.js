@@ -16,28 +16,36 @@ const Dropdown = ({ label, value, options, onChange }) => {
  };
 
 export default function ScheduleForm() {
+  const [schedName, setSchedName] = useState('');
   const [noEarlier, setNoEarlier] = React.useState('ne0800');
-
   const [noLater, setNoLater] = React.useState('nl1700');
 
   const handleNoEarlierChange = (event) => {
-
     setNoEarlier(event.target.value);
-
   }
 
   const handleNoLaterChange = (event) => {
-
     setNoLater(event.target.value);
-
   }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log("Schedule Form");
+    console.log('Schedule Name: ', schedName);
+    console.log('No Earlier Than: ', noEarlier);
+    console.log('No Later Than: ', noLater);
+    setSchedName('');
+  };
+  
 
 
   return (
     
     <div>
       <fieldset>
-      <input type="text" placeholder="Schedule Name"/>
+      <form onSubmit={ handleSubmit }>
+      <input type="text" id='Sched_Name' placeholder="Schedule Name" value ={schedName}
+      onChange = {event => setSchedName(event.target.value)}/>
       <br/>
       <br/>
       <label for={'guests'}>Guests Allowed?</label>
@@ -96,7 +104,6 @@ export default function ScheduleForm() {
       <Dropdown
       label = "No Later Than: "
       options = {[
-        { label: '12:00am',  value: 'nl0000' },
         { label: '01:00am',  value: 'nl0100' },
         { label: '02:00am',  value: 'nl0200' },
         { label: '03:00am',  value: 'nl0300' },
@@ -130,7 +137,8 @@ export default function ScheduleForm() {
       <input name={'endTime'} type={'time'} step={'900'} min={'00:00'}  max={'24:00'} value={'22:00'}/>
       */}
       <br/>
-      { <input type={'submit'}/> }
+      <button type='submit'>Submit</button>
+      </form>
       </fieldset> 
       {/* <div id={'daySelector'} >
         <ul onClick={openSelector()}>Which Days?</ul>
