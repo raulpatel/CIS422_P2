@@ -19,6 +19,14 @@ fieldset {
   align-items: center;
 }
 
+.accordion-title { 
+  cursor: pointer;
+}
+
+.accordion-item {
+  cursor: auto;
+}
+
 label {
   position: relative;
 }
