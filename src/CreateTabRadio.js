@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Calendar from './Calendar'
 import ScheduleForm from './FormsAndTabs/ScheduleForm';
+import PollForm from './FormsAndTabs/PollForm';
+import ContainerForm from './FormsAndTabs/ContainerForm';
 
 class CreateTabRadio extends Component {
   constructor() {
@@ -31,11 +33,11 @@ class CreateTabRadio extends Component {
               </form>;
       case 'Poll':
         return <form name="Poll" id="Poll" >
-              Poll Form
+              <PollForm />
               </form>;
       case 'Containers':
         return <form name="Containers" id="Containers" >
-              Container Form
+              <ContainerForm />
               </form>;
       default:
         return null;
