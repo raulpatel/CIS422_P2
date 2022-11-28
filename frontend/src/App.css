@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+:root {
+  --white: #F3EFE0;
+  --grey: #434242;
+  --black: #222222;
+  --blue: #22A39F;
+  --darkblue: #14615f;
+}
+
+* {
+  text-align: center;
+  font-family: 'Poppins';
+  color: var(--white);
+}
+
+table {
+  margin: auto;
+  border-spacing: 0px;
+  padding: 2vw;
+  empty-cells: show;
+}
+
+th {
+  margin: auto;
+}
+
+td {
+  background-color: var(--white);
+  border-right: 1px solid black;
+  min-width: 50px;
+  height: 2%;
+}
+
+#no {
+  background-color: var(--white);
+}
+
+#yes {
+  background-color: var(--blue);
+}
+
+tbody {
+  border: 1px solid black;
+}
+
+tbody > tr > th {
+  font-size: 5%;
+}
+
+tr {
+  height: 0.1vw;
+}
+
+tr:nth-child(even) > td {
+  border-top: 0px;
+  border-bottom: 1px dotted grey;
+}
+
+element.style {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+fieldset {
+  width: 400px;
+  background-color: var(--blue);
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+label {
+  position: relative;
+}
+
+select {
+  color: var(--black);
+}
+
+input {
+  color: var(--black);
+}
+
+.radio-button-selector {
+  display: inline;
+}
+
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--black);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--white);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Tab Container */
+.Tabs {
+  background: var(--darkblue);
+  color: var(--white);
+  text-align: center;
+  height: auto;
+  min-height: 800px;
+  border-radius: 2rem;
+
+}
+
+body {
+  background-color: var(--blue);
+}
+
+ul.nav {
+  background-color: var(--blue);
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0px;
+}
+
+ul.nav li {
+  background: var(--black);
+  width: 50%;
+  padding: 1rem;
+  font-size: x-large;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+ul.nav li:nth-child(2) {
+  border-radius: 0;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+ul.nav li:hover {
+  background: var(--grey);
+}
+ul.nav li.active {
+  background: var(--darkblue);
+}
+
+.TabContent {
+  font-size: 2rem;
+  text-align: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
