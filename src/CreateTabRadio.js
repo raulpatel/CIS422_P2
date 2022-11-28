@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Calendar from './Calendar'
 import ScheduleForm from './FormsAndTabs/ScheduleForm';
+import PollForm from './FormsAndTabs/PollForm';
+import ContainerForm from './FormsAndTabs/ContainerForm';
 
 class CreateTabRadio extends Component {
   constructor() {
@@ -30,12 +32,12 @@ class CreateTabRadio extends Component {
               <ScheduleForm />
               </form>;
       case 'Poll':
-        return <form name="Calendar" id="Poll" >
-              Poll Form
+        return <form name="Poll" id="Poll" >
+              <PollForm />
               </form>;
       case 'Containers':
-        return <form name="Calendar" id="Containers" >
-              Container Form
+        return <form name="Containers" id="Containers" >
+              <ContainerForm />
               </form>;
       default:
         return null;
@@ -78,7 +80,7 @@ class CreateTabRadio extends Component {
             Containers
           </label>
         </div>
-      {this.renderSelectedForm(this.state.selectedOption)}     
+      {this.renderSelectedForm(this.state.selectedOption)}
       </form>
     );
   }
