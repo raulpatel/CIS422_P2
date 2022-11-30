@@ -167,11 +167,12 @@ def logout():
 
 
 # Create poll
-@app.route("/createpoll")
+@app.route("/createpoll", methods=["POST"])
 def createpoll():
-    j = request.values.get("json_data")
+    j = request.data
+    print(j)
     data = json.loads(j)
-    data["current_date"] = date.today()
+    data["current_date"] = f'{date.today()}'
     data["members"] = []
     if current_user.is_authenticated:
         uid = current_user.id
@@ -184,8 +185,8 @@ def createpoll():
     if current_user.is_authenticated:
         # add pid to user's list of polls
         add_poll_to_user(current_user.id, pid, True)
-    retval['pid':x.inserted_id]
-    return retval, 201
+    retval = {'pid': str(pid)}
+    return str(pid), 201
 
 
 # Get poll data
@@ -201,7 +202,7 @@ def getpoll(poll_id):
 
 
 # Update poll
-@app.route("/update")
+@app.route("/update", methods=["POST"])
 def update():
     j = request.values.get("json_data")
     data = json.loads(j)
@@ -355,7 +356,7 @@ def profile():
         return {"Message":"User is not logged in"}, 400
 
 
-@app.route("/saveschedule")
+@app.route("/saveschedule", methods=["POST"])
 def saveschedule():
     if current_user.is_authenticated:
         j = request.values.get("json_data")
@@ -388,7 +389,7 @@ def saveschedule():
         return {"Message":"User is not logged in"}, 400
 
 
-@app.route("/getschedulestring")
+@app.route("/getschedulestring", methods=["POST"])
 def getschedulestring():
     j = request.values.get("json_data")
     data = json.loads(j)
@@ -413,7 +414,7 @@ def getschedulestring():
         return packed, 200
 
 
-@app.route("/uploadschedulestring")
+@app.route("/uploadschedulestring", methods=["POST"])
 def uploadschedulestring():
     j = request.values.get("json_data")
     data = json.loads(j)
@@ -535,8 +536,6 @@ def add_user_to_poll(uid, pid):
     p = dbi_get_poll(pid)
     if find_user_in_poll(uid, p) is None:
         p["members"].append(
-
-
 def find_user_in_poll(uid, poll)
     for m in poll["members"]:
         if (m["id"] == uid):
@@ -550,8 +549,8 @@ def find_user_in_poll(uid, poll)
 
 def main():
     print("Starting app!")
-    #app.run(debug=True, ssl_context='adhoc')
-    app.run(ssl_context='adhoc')
+    app.run(debug=True, ssl_context='adhoc')
+    #app.run(ssl_context='adhoc')
     
     # Testing
     """

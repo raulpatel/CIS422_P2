@@ -6,6 +6,7 @@
   --black: #222222;
   --blue: #22A39F;
   --darkblue: #14615f;
+  --lightblue: #9f22a3;
 }
 
 * {
@@ -37,7 +38,7 @@ td {
 }
 
 #yes {
-  background-color: var(--blue);
+  background-color: var(--lightblue);
 }
 
 tbody {
@@ -81,6 +82,10 @@ select {
 }
 
 input {
+  color: var(--black);
+}
+
+button {
   color: var(--black);
 }
 

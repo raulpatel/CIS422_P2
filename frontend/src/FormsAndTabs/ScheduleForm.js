@@ -29,11 +29,13 @@ export default function ScheduleForm() {
 
     setNoEarlier(event.target.value);
 
+
   }
 
   const handleNoLaterChange = (event) => {
 
     setNoLater(event.target.value);
+
 
   }
 
@@ -49,34 +51,50 @@ export default function ScheduleForm() {
 
   }
 
-  const json_data = {
+  let json_data = {
     'p_name': scheduleName,
     'p_pw': "",
     'allow_guest': true,
     'date_start': "",
     'date_end': "",
-    'index_start': (Number(noEarlier.substring(2,4)) * 4),
-    'index_end': (Number(noLater.substring(2,4)) * 4),
+    'index_start': (parseInt(noEarlier.substring(2,4)) * 4),
+    'index_end': (parseInt(noLater.substring(2,4)) * 4),
     'containers': [],
     'questions': [],
+    // 'current-date': "",
+    // 'members': [],
+    // 'time': [],
   };
 
   let poll_id = '';
 
-  const submitHandler = (event, scheduleName, guests, noEarlier, noLater) => {
+  const submitHandler = async(event, scheduleName, guests, noEarlier, noLater) => {
     event.preventDefault();
-    fetch(API + "/createpoll", {
+    let result = await fetch(API + "/createpoll", {
       method: "POST",
+      headers: {
+      'Content-Type': 'application/json',
+      },
       mode: 'no-cors',
       body: JSON.stringify(json_data),
     })
-    .then((response) => {
-      poll_id = response.poll_id;
+    console.log(result);
+    /*.then(
+      response =>{
+        console.log(response.data);
+      }
+    )
+    
+    .then(async(response) => {
+      await response.data;
+    })
+    .finally((data) => {
+      poll_id = data;
       console.log(`Poll created with ID: ${poll_id}`);
     })
     .catch((error) => {
       console.error('Error: Poll creation failed')
-    });
+    });*/
   }
 
   return (
@@ -188,7 +206,7 @@ export default function ScheduleForm() {
         <ul className={'days'}><input id={'friday'} type={'checkbox'} />Friday</ul>
         <ul className={'days'}><input id={'saturday'} type={'checkbox'} />Saturday</ul>
       </div> */}
-      {/* <CalendarForm name={scheduleName} nE={noEarlier} nL={noLater}/> */}
+      <CalendarForm name={scheduleName} nE={noEarlier} nL={noLater}/>
     </div>
   )
 }

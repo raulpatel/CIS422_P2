@@ -68,7 +68,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -76,7 +76,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -84,7 +84,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -92,7 +92,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -100,7 +100,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -108,7 +108,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -116,7 +116,7 @@ function tableRowHeader(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -139,7 +139,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -147,7 +147,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -155,7 +155,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -163,7 +163,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -171,7 +171,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -179,7 +179,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
@@ -187,7 +187,7 @@ function tableRow(time) {
       <td
         id="no"
         onClick={(e) => handleClick(e)}
-        //onMouseDown={(e) => handleDrag(e)}
+        onMouseDown={(e) => handleDrag(e)}
         onMouseOver={(e) => handleDrag(e)}
       >
         {" "}
