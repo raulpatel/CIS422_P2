@@ -72,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Backend
 
-You can find instructions for starting up the backend in the backend directory. Using an IDE like VSCode, you can have the react app running in one terminal and the backend api running in another terminal.
+You can find instructions for starting up the backend in the backend directory under INSTALL.txt. Using an IDE like VSCode, you can have the react app running in one terminal and the backend api running in another terminal.
