@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import CalendarForm from './CalendarForm';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import {API} from "../../App"
 
 
@@ -25,6 +25,8 @@ export default function ScheduleForm() {
   const [scheduleName, setScheduleName] = React.useState('');
 
   const [isShown, setIsShown] = React.useState(false);
+
+  const nav = useNavigate();
 
   const handleNoEarlierChange = (event) => {
 
@@ -69,7 +71,7 @@ export default function ScheduleForm() {
 
   let poll_id = '';
 
-  const submitHandler = async(event, scheduleName, guests, noEarlier, noLater) => {
+  const submitHandler = async(event) => {
     event.preventDefault();
     const response = await fetch(API + "/createpoll", {
       method: "POST",
@@ -80,9 +82,13 @@ export default function ScheduleForm() {
       },
       body: JSON.stringify(json_data),
     })
-    poll_id = await response.text();
-    console.log(`Poll ID: ${poll_id}`);
-    redirect(`/schedule/${poll_id}?nE=${noEarlier}&nL=${noLater}&sN=${scheduleName}`);
+    poll_id = await response.json();
+    console.log(`Poll ID: ${poll_id['pid']}`);
+    // redirect(`/schedule/${poll_id['pid']}?nE=${noEarlier}&nL=${noLater}&sN=${scheduleName}`);
+    console.log(`Redirecting to the schedule page with params pid: ${poll_id['pid']}, nE: ${noEarlier}, nL: ${noLater}, sN: ${scheduleName}`);
+    nav(`/schedule/${poll_id['pid']}?nE=${noEarlier}&nL=${noLater}&sN=${scheduleName}`);
+
+    
     /*.then(
       response =>{
         console.log(response.data);

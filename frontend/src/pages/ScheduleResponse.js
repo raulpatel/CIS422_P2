@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { API } from '../App'
 import Calendar from '../components/Calendar';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams } from 'react-router-dom';
 
 
-const ScheduleResponse = ({match}) => {
-    const {
-        params: { pollId },
-    } = match;
+const ScheduleResponse = () => {
+    const { pollId } = useParams();
     const [searchParams] = useSearchParams();
     const [isLoading, setIsLoading] = useState(true);
     const [pollData, setPollData] = useState();
@@ -33,38 +31,39 @@ const ScheduleResponse = ({match}) => {
         let sunData = [], monData = [], tuesData = [], wedData = [], thursData = [], friData = [], satData = [];
         let schedule = [];
         for (const t of sunday) {
-            sunData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            sunData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of monday) {
-            monData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            monData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of tuesday) {
-            tuesData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            tuesData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of wednesday) {
-            wedData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            wedData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of thursday) {
-            thursData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            thursData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of friday) {
-            friData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            friData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         for (const t of saturday) {
-            satData.push(Boolean(t.id()));
-            schedule.push(Boolean(t.id()));
+            satData.push(Boolean(t.id));
+            schedule.push(Boolean(t.id));
         }
         const data = [sunData, monData, tuesData, wedData, thursData, friData, satData];
         return {"data":data, "schedule":schedule};
     };
 
-    useEffect(() => {
+    const ClickHandler = (event) => {
+        event.preventDefault();
         setIsLoading(true);
         let json_data = {
             poll_id: pollId,
@@ -91,15 +90,17 @@ const ScheduleResponse = ({match}) => {
             body: JSON.stringify(json_data),
         });
         PollLoad();
-    }, [pollId, userName, password, pollData]);
+    };
 
     return (
         <>
             <label htmlFor='name'>Name: </label>
-            <input name="name" type="text" defaultValue="Your Name" onChange={nameChangeHandler}/>
+            <input name="name" type="text" placeholder='Your Name' onChange={nameChangeHandler}/>
+            <br/><br/>
             <label htmlFor='password'>Password (optional): </label>
-            <input name="password" type="text" defaultValue="" onChange={passwordChangeHandler}/>
+            <input name="password" type="password" defaultValue=""  onChange={passwordChangeHandler}/>
             <Calendar name={searchParams.get("sN")} nE={searchParams.get("nE")} nL={searchParams.get("nL")}/>
+            <input type="submit" onClick={ClickHandler} />
         </>
     );
 

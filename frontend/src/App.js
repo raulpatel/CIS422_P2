@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Link, Route, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Routes, redirect } from "react-router-dom";
 import React from 'react';
 
 import Home from "./pages/Home";
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} /> 
-        <Route path="/schedule:pollId" element={<ScheduleResponse />} />
+        <Route exact path="/schedule/:pollId" element={<ScheduleResponse />} />
       </Routes>
     </Router>
   );
