@@ -217,12 +217,12 @@ def getpoll(poll_id):
         # return {"Message":"This poll does not allow guest access"}, 401
         print("This poll does not allow guest access")
     else:
-        return wrap_response(p_data, 200)
+        return wrap_response(dict(p_data), 200)
 
 
 # Update poll
 @app.route("/update", methods=["POST"])
-def update(id):
+def update():
     j = request.values.get("json_data")
     data = json.loads(j)
     
@@ -354,12 +354,12 @@ def update(id):
     # all fields filled, write update:
     x = dbi_update_poll(entry)
     if (x.matched_count == 0):
-        return {"Message":"Poll does not exist to modify"}, 404
+        return jsonify({"Message":"Poll does not exist to modify"}), 404
     else:
         # poll updated, send success, add to user's "members" list
         if current_user.is_authenticated:
             add_poll_to_user(current_user.id, p["_id"], False)
-        return wrap_response({"Message":"Update success"}, 200)
+        return wrap_response("Update success", 200)
 
 
 @app.route("/profile")
@@ -559,6 +559,7 @@ def wrap_response(data: dict, *args, **kwargs) -> flask.Response:
     response = flask.make_response(json, *args, **kwargs)
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers["Access-Control-Allow-Credentials"] = True
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
     return response
 
 
