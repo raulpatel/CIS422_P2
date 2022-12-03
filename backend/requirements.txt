@@ -6,5 +6,7 @@ PyOpenSSL
 google-auth
 google-auth-oauthlib
 requests-oauthlib
+bson
 pymongo
 numpy
+flask-cors

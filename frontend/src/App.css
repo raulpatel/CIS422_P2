@@ -33,11 +33,11 @@ td {
   height: 2%;
 }
 
-#no {
+#false {
   background-color: var(--white);
 }
 
-#yes {
+#true {
   background-color: var(--lightblue);
 }
 
@@ -86,6 +86,10 @@ input {
 }
 
 button {
+  color: var(--black);
+}
+
+a {
   color: var(--black);
 }
 

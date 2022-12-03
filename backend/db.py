@@ -15,7 +15,7 @@ c_user = db["users"]
 def shutdown_db_client():
     m_client.close
 
-
+"""
 def nuke_it_from_orbit():
     # only uncomment and use if you really mean it
     x = c_poll.delete_many({})
@@ -23,7 +23,7 @@ def nuke_it_from_orbit():
     x = c_user.delete_many({})
     print(x.deleted_count, " users deleted")
     return
-
+"""
 
 ################################
 # Poll DB functions
@@ -35,7 +35,7 @@ def create_poll(dat):
     entry = { "p_name": dat["p_name"], "p_pw": dat["p_pw"], "allow_guest": dat["allow_guest"],
             "date_start": dat["date_start"], "date_end": dat["date_end"], "index_start": dat["index_start"],
             "index_end": dat["index_end"], "containers": dat["containers"], "questions": dat["questions"],
-            "current_date": dat["current_date"], "members": dat["members"], "times":[] }
+            "create_date": dat["create_date"], "members": dat["members"], "times":[] }
     print("poll data loaded to entry. Entry:")
     print(entry)
     return c_poll.insert_one(entry)

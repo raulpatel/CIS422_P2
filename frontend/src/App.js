@@ -1,15 +1,21 @@
 import './App.css';
-import Welcome from './Welcome';
-import Tabs from "./FormsAndTabs/Tabs";
-import ScheduleForm from './FormsAndTabs/ScheduleForm';
+import { BrowserRouter as Router, Link, Route, Routes, Redirect } from "react-router-dom";
+import React from 'react';
+
+import Home from "./pages/Home";
+import ScheduleResponse from './pages/ScheduleResponse';
+
+const API = "https://127.0.0.1:5000";
 
 function App() {
   return (
-    <div>
-      <Welcome />
-      <Tabs />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} /> 
+        <Route path="/schedule:pollId" element={<ScheduleResponse />} />
+      </Routes>
+    </Router>
   );
 }
-
+export {API};
 export default App;
