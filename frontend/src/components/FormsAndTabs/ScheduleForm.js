@@ -70,7 +70,7 @@ export default function ScheduleForm() {
   };
 
   let poll_id = '';
-
+// create the poll
   const submitHandler = async(event) => {
     event.preventDefault();
     const response = await fetch(API + "/createpoll", {
@@ -85,6 +85,7 @@ export default function ScheduleForm() {
     poll_id = await response.json();
     console.log(`Poll ID: ${poll_id['pid']}`);
     // redirect(`/schedule/${poll_id['pid']}?nE=${noEarlier}&nL=${noLater}&sN=${scheduleName}`);
+    // create individualized page for the schedule
     console.log(`Redirecting to the schedule page with params pid: ${poll_id['pid']}, nE: ${noEarlier}, nL: ${noLater}, sN: ${scheduleName}`);
     nav(`/schedule/${poll_id['pid']}?nE=${noEarlier}&nL=${noLater}&sN=${scheduleName}`);
 

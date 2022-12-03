@@ -21,6 +21,9 @@ const ScheduleResponse = () => {
     }
 
     const getSubmissionData = () => {
+
+        // create schedule boolean data
+
         let sunday = document.getElementsByClassName("Sunday");
         let monday = document.getElementsByClassName("Monday");
         let tuesday = document.getElementsByClassName("Tuesday");
@@ -74,10 +77,11 @@ const ScheduleResponse = () => {
             questions: [],
         };
         const PollLoad = async () => {
+            // get schedule with specified id
             const response = await fetch(API + `/poll/${pollId}`);
             setPollData(await response.json());
             setIsLoading(false);
-            console.log(pollData);
+            console.log(pollData['data']);
         };
         fetch(API + "/update", 
         {

@@ -15,6 +15,7 @@ function handleDrag(event) {
 }
 
 export default function Calendar(props) {
+  // math and loops to create correct number of rows
   let noEarlier = Number(props.nE.substring(2, 6));
   let noLater = Number(props.nL.substring(2, 6));
   let totalHours = (noLater - noEarlier) / 100;

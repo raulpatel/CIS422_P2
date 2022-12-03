@@ -217,13 +217,14 @@ def getpoll(poll_id):
         # return {"Message":"This poll does not allow guest access"}, 401
         print("This poll does not allow guest access")
     else:
-        return wrap_response(dict(p_data), 200)
+        print(p_data)
+        return wrap_response(str(p_data), 200)
 
 
 # Update poll
 @app.route("/update", methods=["POST"])
 def update():
-    j = request.values.get("json_data")
+    j = request.data
     data = json.loads(j)
     
     p = dbi_get_poll(data["poll_id"])
@@ -555,7 +556,7 @@ def find_member_index(n, arr):
 
 
 def wrap_response(data: dict, *args, **kwargs) -> flask.Response:
-    json = flask.jsonify(data)
+    json = jsonify(data)
     response = flask.make_response(json, *args, **kwargs)
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers["Access-Control-Allow-Credentials"] = True

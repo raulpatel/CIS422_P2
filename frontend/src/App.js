@@ -9,6 +9,7 @@ const API = "https://127.0.0.1:5000";
 
 function App() {
   return (
+    // navigation structure for multi-page app
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} /> 
